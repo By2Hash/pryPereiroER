@@ -46,13 +46,13 @@
             this.btnAgregarMedico = new System.Windows.Forms.Button();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
-            this.cmbEspecialidades = new System.Windows.Forms.ComboBox();
-            this.lblEspecialidadConsulta = new System.Windows.Forms.Label();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.clmMatricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbConsultarEspecialidad = new System.Windows.Forms.ComboBox();
+            this.lblEspecialidadConsulta = new System.Windows.Forms.Label();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabEspecialidades.SuspendLayout();
             this.tabMedicos.SuspendLayout();
@@ -67,9 +67,10 @@
             this.tabControl.Controls.Add(this.tabConsulta);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(686, 390);
+            this.tabControl.Size = new System.Drawing.Size(1029, 600);
             this.tabControl.TabIndex = 0;
             // 
             // tabEspecialidades
@@ -79,55 +80,62 @@
             this.tabEspecialidades.Controls.Add(this.lblIdEspecialidad);
             this.tabEspecialidades.Controls.Add(this.lblNombreEspecialidad);
             this.tabEspecialidades.Controls.Add(this.btnAgregarEspecialidad);
-            this.tabEspecialidades.Location = new System.Drawing.Point(4, 22);
+            this.tabEspecialidades.Location = new System.Drawing.Point(4, 29);
+            this.tabEspecialidades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabEspecialidades.Name = "tabEspecialidades";
-            this.tabEspecialidades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEspecialidades.Size = new System.Drawing.Size(678, 364);
+            this.tabEspecialidades.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabEspecialidades.Size = new System.Drawing.Size(1021, 567);
             this.tabEspecialidades.TabIndex = 0;
             this.tabEspecialidades.Text = "Especialidades";
             this.tabEspecialidades.UseVisualStyleBackColor = true;
             // 
             // txtIdEspecialidad
             // 
-            this.txtIdEspecialidad.Location = new System.Drawing.Point(7, 25);
+            this.txtIdEspecialidad.Location = new System.Drawing.Point(10, 38);
+            this.txtIdEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIdEspecialidad.Name = "txtIdEspecialidad";
-            this.txtIdEspecialidad.Size = new System.Drawing.Size(86, 20);
+            this.txtIdEspecialidad.Size = new System.Drawing.Size(127, 26);
             this.txtIdEspecialidad.TabIndex = 0;
             this.txtIdEspecialidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdEspecialidad_KeyPress);
             // 
             // txtNombreEspecialidad
             // 
-            this.txtNombreEspecialidad.Location = new System.Drawing.Point(98, 25);
+            this.txtNombreEspecialidad.Location = new System.Drawing.Point(147, 38);
+            this.txtNombreEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreEspecialidad.Name = "txtNombreEspecialidad";
-            this.txtNombreEspecialidad.Size = new System.Drawing.Size(172, 20);
+            this.txtNombreEspecialidad.Size = new System.Drawing.Size(256, 26);
             this.txtNombreEspecialidad.TabIndex = 1;
             // 
             // lblIdEspecialidad
             // 
             this.lblIdEspecialidad.AutoSize = true;
-            this.lblIdEspecialidad.Location = new System.Drawing.Point(7, 10);
+            this.lblIdEspecialidad.Location = new System.Drawing.Point(10, 15);
+            this.lblIdEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdEspecialidad.Name = "lblIdEspecialidad";
-            this.lblIdEspecialidad.Size = new System.Drawing.Size(21, 13);
+            this.lblIdEspecialidad.Size = new System.Drawing.Size(30, 20);
             this.lblIdEspecialidad.TabIndex = 2;
             this.lblIdEspecialidad.Text = "ID:";
             // 
             // lblNombreEspecialidad
             // 
             this.lblNombreEspecialidad.AutoSize = true;
-            this.lblNombreEspecialidad.Location = new System.Drawing.Point(98, 10);
+            this.lblNombreEspecialidad.Location = new System.Drawing.Point(147, 15);
+            this.lblNombreEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreEspecialidad.Name = "lblNombreEspecialidad";
-            this.lblNombreEspecialidad.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreEspecialidad.Size = new System.Drawing.Size(69, 20);
             this.lblNombreEspecialidad.TabIndex = 3;
             this.lblNombreEspecialidad.Text = "Nombre:";
             // 
             // btnAgregarEspecialidad
             // 
-            this.btnAgregarEspecialidad.Location = new System.Drawing.Point(274, 25);
+            this.btnAgregarEspecialidad.Location = new System.Drawing.Point(411, 38);
+            this.btnAgregarEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad";
-            this.btnAgregarEspecialidad.Size = new System.Drawing.Size(64, 20);
+            this.btnAgregarEspecialidad.Size = new System.Drawing.Size(96, 31);
             this.btnAgregarEspecialidad.TabIndex = 4;
             this.btnAgregarEspecialidad.Text = "Agregar";
             this.btnAgregarEspecialidad.UseVisualStyleBackColor = true;
+            this.btnAgregarEspecialidad.Click += new System.EventHandler(this.btnAgregarEspecialidad_Click);
             // 
             // tabMedicos
             // 
@@ -138,83 +146,94 @@
             this.tabMedicos.Controls.Add(this.lblNombreMedico);
             this.tabMedicos.Controls.Add(this.lblEspecialidadMedico);
             this.tabMedicos.Controls.Add(this.btnAgregarMedico);
-            this.tabMedicos.Location = new System.Drawing.Point(4, 22);
+            this.tabMedicos.Location = new System.Drawing.Point(4, 29);
+            this.tabMedicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMedicos.Name = "tabMedicos";
-            this.tabMedicos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMedicos.Size = new System.Drawing.Size(678, 364);
+            this.tabMedicos.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabMedicos.Size = new System.Drawing.Size(1021, 567);
             this.tabMedicos.TabIndex = 1;
             this.tabMedicos.Text = "Médicos";
             this.tabMedicos.UseVisualStyleBackColor = true;
             // 
             // txtMatriculaMedico
             // 
-            this.txtMatriculaMedico.Location = new System.Drawing.Point(7, 25);
+            this.txtMatriculaMedico.Location = new System.Drawing.Point(10, 38);
+            this.txtMatriculaMedico.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatriculaMedico.Name = "txtMatriculaMedico";
-            this.txtMatriculaMedico.Size = new System.Drawing.Size(86, 20);
+            this.txtMatriculaMedico.Size = new System.Drawing.Size(127, 26);
             this.txtMatriculaMedico.TabIndex = 0;
+            this.txtMatriculaMedico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatriculaMedico_KeyPress);
             // 
             // txtNombreMedico
             // 
-            this.txtNombreMedico.Location = new System.Drawing.Point(98, 25);
+            this.txtNombreMedico.Location = new System.Drawing.Point(147, 38);
+            this.txtNombreMedico.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreMedico.Name = "txtNombreMedico";
-            this.txtNombreMedico.Size = new System.Drawing.Size(172, 20);
+            this.txtNombreMedico.Size = new System.Drawing.Size(256, 26);
             this.txtNombreMedico.TabIndex = 1;
             // 
             // cmbEspecialidadMedico
             // 
             this.cmbEspecialidadMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEspecialidadMedico.FormattingEnabled = true;
-            this.cmbEspecialidadMedico.Location = new System.Drawing.Point(274, 25);
+            this.cmbEspecialidadMedico.Location = new System.Drawing.Point(411, 38);
+            this.cmbEspecialidadMedico.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbEspecialidadMedico.Name = "cmbEspecialidadMedico";
-            this.cmbEspecialidadMedico.Size = new System.Drawing.Size(172, 21);
+            this.cmbEspecialidadMedico.Size = new System.Drawing.Size(256, 28);
             this.cmbEspecialidadMedico.TabIndex = 2;
             // 
             // lblMatriculaMedico
             // 
             this.lblMatriculaMedico.AutoSize = true;
-            this.lblMatriculaMedico.Location = new System.Drawing.Point(7, 10);
+            this.lblMatriculaMedico.Location = new System.Drawing.Point(10, 15);
+            this.lblMatriculaMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMatriculaMedico.Name = "lblMatriculaMedico";
-            this.lblMatriculaMedico.Size = new System.Drawing.Size(55, 13);
+            this.lblMatriculaMedico.Size = new System.Drawing.Size(77, 20);
             this.lblMatriculaMedico.TabIndex = 3;
             this.lblMatriculaMedico.Text = "Matrícula:";
             // 
             // lblNombreMedico
             // 
             this.lblNombreMedico.AutoSize = true;
-            this.lblNombreMedico.Location = new System.Drawing.Point(98, 10);
+            this.lblNombreMedico.Location = new System.Drawing.Point(147, 15);
+            this.lblNombreMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreMedico.Name = "lblNombreMedico";
-            this.lblNombreMedico.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreMedico.Size = new System.Drawing.Size(69, 20);
             this.lblNombreMedico.TabIndex = 4;
             this.lblNombreMedico.Text = "Nombre:";
             // 
             // lblEspecialidadMedico
             // 
             this.lblEspecialidadMedico.AutoSize = true;
-            this.lblEspecialidadMedico.Location = new System.Drawing.Point(274, 10);
+            this.lblEspecialidadMedico.Location = new System.Drawing.Point(411, 15);
+            this.lblEspecialidadMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEspecialidadMedico.Name = "lblEspecialidadMedico";
-            this.lblEspecialidadMedico.Size = new System.Drawing.Size(70, 13);
+            this.lblEspecialidadMedico.Size = new System.Drawing.Size(103, 20);
             this.lblEspecialidadMedico.TabIndex = 5;
             this.lblEspecialidadMedico.Text = "Especialidad:";
             // 
             // btnAgregarMedico
             // 
-            this.btnAgregarMedico.Location = new System.Drawing.Point(451, 25);
+            this.btnAgregarMedico.Location = new System.Drawing.Point(676, 38);
+            this.btnAgregarMedico.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregarMedico.Name = "btnAgregarMedico";
-            this.btnAgregarMedico.Size = new System.Drawing.Size(64, 20);
+            this.btnAgregarMedico.Size = new System.Drawing.Size(96, 31);
             this.btnAgregarMedico.TabIndex = 6;
             this.btnAgregarMedico.Text = "Agregar";
             this.btnAgregarMedico.UseVisualStyleBackColor = true;
+            this.btnAgregarMedico.Click += new System.EventHandler(this.btnAgregarMedico_Click);
             // 
             // tabConsulta
             // 
             this.tabConsulta.Controls.Add(this.dgvMedicos);
-            this.tabConsulta.Controls.Add(this.cmbEspecialidades);
+            this.tabConsulta.Controls.Add(this.cmbConsultarEspecialidad);
             this.tabConsulta.Controls.Add(this.lblEspecialidadConsulta);
             this.tabConsulta.Controls.Add(this.btnConsultar);
-            this.tabConsulta.Location = new System.Drawing.Point(4, 22);
+            this.tabConsulta.Location = new System.Drawing.Point(4, 29);
+            this.tabConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabConsulta.Name = "tabConsulta";
-            this.tabConsulta.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConsulta.Size = new System.Drawing.Size(678, 364);
+            this.tabConsulta.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabConsulta.Size = new System.Drawing.Size(1021, 567);
             this.tabConsulta.TabIndex = 2;
             this.tabConsulta.Text = "Consulta";
             this.tabConsulta.UseVisualStyleBackColor = true;
@@ -227,67 +246,81 @@
             this.clmNombre,
             this.clmApellido,
             this.clmEspecialidad});
-            this.dgvMedicos.Location = new System.Drawing.Point(7, 50);
+            this.dgvMedicos.Location = new System.Drawing.Point(10, 77);
+            this.dgvMedicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvMedicos.Name = "dgvMedicos";
+            this.dgvMedicos.RowHeadersWidth = 62;
             this.dgvMedicos.RowTemplate.Height = 25;
-            this.dgvMedicos.Size = new System.Drawing.Size(665, 309);
+            this.dgvMedicos.Size = new System.Drawing.Size(998, 475);
             this.dgvMedicos.TabIndex = 3;
             // 
-            // cmbEspecialidades
+            // clmMatricula
             // 
-            this.cmbEspecialidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEspecialidades.FormattingEnabled = true;
-            this.cmbEspecialidades.Location = new System.Drawing.Point(7, 25);
-            this.cmbEspecialidades.Name = "cmbEspecialidades";
-            this.cmbEspecialidades.Size = new System.Drawing.Size(172, 21);
-            this.cmbEspecialidades.TabIndex = 2;
+            this.clmMatricula.HeaderText = "Matricula";
+            this.clmMatricula.MinimumWidth = 8;
+            this.clmMatricula.Name = "clmMatricula";
+            this.clmMatricula.Width = 150;
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.MinimumWidth = 8;
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.Width = 150;
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "Apellido";
+            this.clmApellido.MinimumWidth = 8;
+            this.clmApellido.Name = "clmApellido";
+            this.clmApellido.Width = 150;
+            // 
+            // clmEspecialidad
+            // 
+            this.clmEspecialidad.HeaderText = "Especialidad";
+            this.clmEspecialidad.MinimumWidth = 8;
+            this.clmEspecialidad.Name = "clmEspecialidad";
+            this.clmEspecialidad.Width = 150;
+            // 
+            // cmbConsultarEspecialidad
+            // 
+            this.cmbConsultarEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbConsultarEspecialidad.FormattingEnabled = true;
+            this.cmbConsultarEspecialidad.Location = new System.Drawing.Point(10, 38);
+            this.cmbConsultarEspecialidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbConsultarEspecialidad.Name = "cmbConsultarEspecialidad";
+            this.cmbConsultarEspecialidad.Size = new System.Drawing.Size(256, 28);
+            this.cmbConsultarEspecialidad.TabIndex = 2;
             // 
             // lblEspecialidadConsulta
             // 
             this.lblEspecialidadConsulta.AutoSize = true;
-            this.lblEspecialidadConsulta.Location = new System.Drawing.Point(7, 10);
+            this.lblEspecialidadConsulta.Location = new System.Drawing.Point(10, 15);
+            this.lblEspecialidadConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEspecialidadConsulta.Name = "lblEspecialidadConsulta";
-            this.lblEspecialidadConsulta.Size = new System.Drawing.Size(70, 13);
+            this.lblEspecialidadConsulta.Size = new System.Drawing.Size(103, 20);
             this.lblEspecialidadConsulta.TabIndex = 1;
             this.lblEspecialidadConsulta.Text = "Especialidad:";
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(183, 25);
+            this.btnConsultar.Location = new System.Drawing.Point(274, 38);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(64, 20);
+            this.btnConsultar.Size = new System.Drawing.Size(96, 31);
             this.btnConsultar.TabIndex = 0;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // clmMatricula
-            // 
-            this.clmMatricula.HeaderText = "Matricula";
-            this.clmMatricula.Name = "clmMatricula";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // clmApellido
-            // 
-            this.clmApellido.HeaderText = "Apellido";
-            this.clmApellido.Name = "clmApellido";
-            // 
-            // clmEspecialidad
-            // 
-            this.clmEspecialidad.HeaderText = "Especialidad";
-            this.clmEspecialidad.Name = "clmEspecialidad";
-            // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(1029, 600);
             this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administracion - Clìnica ";
@@ -310,7 +343,7 @@
         private System.Windows.Forms.TabPage tabMedicos;
         private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.DataGridView dgvMedicos;
-        private System.Windows.Forms.ComboBox cmbEspecialidades;
+        private System.Windows.Forms.ComboBox cmbConsultarEspecialidad;
         private System.Windows.Forms.Label lblEspecialidadConsulta;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.TextBox txtIdEspecialidad;
