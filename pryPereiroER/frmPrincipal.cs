@@ -38,35 +38,39 @@ namespace pryPereiroER
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            // 1. Mensaje de diagnóstico (Para saber si hay algo guardado)
-            MessageBox.Show("Total de médicos en memoria: " + Listamedicos.Count.ToString());
-
+            // Validaciones básicas
             if (cmbConsultarEspecialidad.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, seleccioná una especialidad en el combo.");
                 return;
             }
 
-            // 2. Obtener la especialidad seleccionada
+            // Obtener la especialidad seleccionada
             CEspecialidades seleccionada = (CEspecialidades)cmbConsultarEspecialidad.SelectedItem;
 
-            // 3. Filtrar manualmente (más seguro que LINQ para debugear ahora)
-            List<CMedico> listaFiltrada = new List<CMedico>();
-            foreach (CMedico med in Listamedicos)
-            {
-                if (med.Especialidad.Id == seleccionada.Id)
-                {
-                    listaFiltrada.Add(med);
-                }
-            }
+            // Filtrar médicos por especialidad
+            List<CMedico> listaFiltrada = Listamedicos.Where(m => m.Especialidad != null && m.Especialidad.Id == seleccionada.Id).ToList();
 
-            // 4. Limpiar y refrescar la grilla
+            // Limpiar la grilla y columnas para evitar columnas sobrantes
             dgvMedicos.DataSource = null;
+            dgvMedicos.Columns.Clear();
+
             if (listaFiltrada.Count > 0)
             {
-                dgvMedicos.DataSource = listaFiltrada;
-                // Refrescar visualmente la grilla
+                // Crear una lista plana para mostrar el nombre de la especialidad en la grilla
+                var listaParaMostrar = listaFiltrada.Select(m => new
+                {
+                    Matricula = m.Matricula,
+                    Nombre = m.Nombre,
+                    Apellido = m.Apellido,
+                    Especialidad = m.Especialidad != null ? m.Especialidad.Nombre : string.Empty
+                }).ToList();
+
+                dgvMedicos.AutoGenerateColumns = true;
+                dgvMedicos.DataSource = listaParaMostrar;
                 dgvMedicos.Refresh();
+
+                MessageBox.Show("Total de médicos encontrados: " + listaFiltrada.Count.ToString());
             }
             else
             {
@@ -114,9 +118,30 @@ namespace pryPereiroER
 
         private void btnAgregarMedico_Click(object sender, EventArgs e)
         {
-           CMedico nuevoM = new CMedico();
-            nuevoM.Matricula = int.Parse(txtMatriculaMedico.Text);
+           // Validaciones
+            if (string.IsNullOrWhiteSpace(txtMatriculaMedico.Text) || string.IsNullOrWhiteSpace(txtNombreMedico.Text))
+            {
+                MessageBox.Show("Complete matrícula y nombre del médico.");
+                return;
+            }
+
+            if (!int.TryParse(txtMatriculaMedico.Text, out int matricula))
+            {
+                MessageBox.Show("La matrícula debe ser un número válido.");
+                return;
+            }
+
+            if (cmbEspecialidadMedico.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione una especialidad para el médico.");
+                return;
+            }
+
+            CMedico nuevoM = new CMedico();
+            nuevoM.Matricula = matricula;
             nuevoM.Nombre = txtNombreMedico.Text;
+            // El formulario no tiene campo de apellido, se deja vacío si no existe
+            nuevoM.Apellido = string.Empty;
             nuevoM.Especialidad = (CEspecialidades)cmbEspecialidadMedico.SelectedItem;
             Listamedicos.Add(nuevoM);
             txtMatriculaMedico.Clear();
