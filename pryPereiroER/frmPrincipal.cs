@@ -85,7 +85,7 @@ namespace pryPereiroER
                 if (string.IsNullOrWhiteSpace(txtNombreEspecialidad.Text))
                 {
                     MessageBox.Show("Cargue un nombre válido");
-                    return;
+                    return; 
                 }
 
                 int idGenerado;
