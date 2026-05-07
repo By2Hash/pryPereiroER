@@ -61,8 +61,8 @@ namespace pryPereiroER
                 var listaParaMostrar = listaFiltrada.Select(m => new
                 {
                     Matricula = m.Matricula,
-                    Nombre = m.Nombre,
-                    Apellido = m.Apellido,
+                    Nombre_Completo = m.Nombre,
+                    
                     Especialidad = m.Especialidad != null ? m.Especialidad.Nombre : string.Empty
                 }).ToList();
 
@@ -76,6 +76,8 @@ namespace pryPereiroER
             {
                 MessageBox.Show("No se encontraron médicos para: " + seleccionada.Nombre);
             }
+
+            cmbConsultarEspecialidad.SelectedIndex = -1;
         }
 
         private void btnAgregarEspecialidad_Click(object sender, EventArgs e)
@@ -146,6 +148,8 @@ namespace pryPereiroER
             Listamedicos.Add(nuevoM);
             txtMatriculaMedico.Clear();
             txtNombreMedico.Clear();
+
+            cmbEspecialidadMedico.SelectedIndex = -1;
             MessageBox.Show("Médico registrado con éxito.");
 
         }
@@ -157,6 +161,26 @@ namespace pryPereiroER
 
                 e.Handled = true;
             }
+        }
+
+        private void dgvMedicos_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            string index = (e.RowIndex + 1).ToString();
+
+            // Dibuja el texto en el encabezado de la fila
+            var centerFormat = new StringFormat()
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvMedicos.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(index, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void cmbEspecialidadMedico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     
