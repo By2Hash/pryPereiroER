@@ -46,12 +46,12 @@
             this.btnAgregarMedico = new System.Windows.Forms.Button();
             this.tabConsulta = new System.Windows.Forms.TabPage();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
-            this.cmbConsultarEspecialidad = new System.Windows.Forms.ComboBox();
-            this.lblEspecialidadConsulta = new System.Windows.Forms.Label();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.clmMatricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbConsultarEspecialidad = new System.Windows.Forms.ComboBox();
+            this.lblEspecialidadConsulta = new System.Windows.Forms.Label();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabEspecialidades.SuspendLayout();
             this.tabMedicos.SuspendLayout();
@@ -260,6 +260,24 @@
             this.dgvMedicos.TabIndex = 3;
             this.dgvMedicos.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvMedicos_RowPostPaint);
             // 
+            // clmMatricula
+            // 
+            this.clmMatricula.HeaderText = "Matricula";
+            this.clmMatricula.MinimumWidth = 8;
+            this.clmMatricula.Name = "clmMatricula";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.MinimumWidth = 8;
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmEspecialidad
+            // 
+            this.clmEspecialidad.HeaderText = "Especialidad";
+            this.clmEspecialidad.MinimumWidth = 8;
+            this.clmEspecialidad.Name = "clmEspecialidad";
+            // 
             // cmbConsultarEspecialidad
             // 
             this.cmbConsultarEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -293,24 +311,6 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // clmMatricula
-            // 
-            this.clmMatricula.HeaderText = "Matricula";
-            this.clmMatricula.MinimumWidth = 8;
-            this.clmMatricula.Name = "clmMatricula";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.MinimumWidth = 8;
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // clmEspecialidad
-            // 
-            this.clmEspecialidad.HeaderText = "Especialidad";
-            this.clmEspecialidad.MinimumWidth = 8;
-            this.clmEspecialidad.Name = "clmEspecialidad";
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -322,6 +322,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administracion - Clìnica ";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.tabControl.ResumeLayout(false);
             this.tabEspecialidades.ResumeLayout(false);
             this.tabEspecialidades.PerformLayout();
